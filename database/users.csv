@@ -1,0 +1,2 @@
+﻿id;name;email;email_verified_at;password;two_factor_secret;two_factor_recovery_codes;remember_token;created_at;updated_at
+1;Ibrahima Sarr;admin@admin.com;;$2y$10$t9zDIaxRDEpBo7bvBn7wf.rtFuNZ.o4RTX0JaBi5.lz61lFn6RWGq;;;4XMIrrKXAfLX38McZUBWYXGbmOj6szg419rhjlmb35jPyAP1wOdOBiHL9dvd;2020-09-24 03:17:14;2020-09-24 03:17:14
