@@ -40,7 +40,14 @@ class EtablissementsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $etablissement = $request->validate([
+            'name'      =>  'required',
+            'statut'    =>  'required'
+        ]);
+
+        Etablissement::create($request->all());
+
+        return redirect(route('etablissements.index'))->with('status', 'Etablissement ajouté avec succès');
     }
 
     /**
@@ -60,9 +67,9 @@ class EtablissementsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Etablissement $etablissement)
     {
-        //
+        return view('etablissements.edit', compact('etablissement'));
     }
 
     /**
@@ -72,9 +79,18 @@ class EtablissementsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Etablissement $etablissement)
     {
-        //
+         $etablissement = $request->validate([
+            'name'      =>  'required',
+            'statut'    =>  'required'
+        ]);
+
+         $etablissement->update($request->all());
+
+         return redirect(route('etablissements.index'))->with('status', 'Etablissement mis à jour.');
+
+
     }
 
     /**
@@ -85,6 +101,8 @@ class EtablissementsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
+        
+        //return redirect(route('etablissements.index'))->with('status', 'Etablissement supprimé avec succès.');
     }
 }

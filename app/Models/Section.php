@@ -10,7 +10,13 @@ class Section extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['title',
+    				'admisPremierTour',
+    				'repechagePremierTour',
+     				'secondTour',
+    				'admisSecondTour',
+    				'repechageSecondTour'
+    			];
 
     public function candidats()
 	{

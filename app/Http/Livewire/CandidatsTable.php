@@ -32,8 +32,7 @@ class CandidatsTable extends LivewireDatatable
 
             //Column::checkbox(),
         	NumberColumn::name('id')
-        		->label('ID')
-        		->linkTo('candidats', 3),
+        		->label('ID'),
 
         	Column::name('prenoms'),
         	Column::name('nom'),

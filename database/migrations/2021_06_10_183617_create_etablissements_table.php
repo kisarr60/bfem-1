@@ -15,6 +15,9 @@ class CreateEtablissementsTable extends Migration
     {
         Schema::create('etablissements', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('statut', ['PU', 'PR', 'CL'])->default('PU');            
+            $table->string('contact')->nullable();
             $table->timestamps();
         });
     }

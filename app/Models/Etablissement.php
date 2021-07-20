@@ -9,6 +9,8 @@ class Etablissement extends Model
 {
     use HasFactory;
 
+    public $fillable = ['name', 'statut', 'contact'];
+
     public function candidats()
     {
     	return $this->hasMany(Candidat::class);
