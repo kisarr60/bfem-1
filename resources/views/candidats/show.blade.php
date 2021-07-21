@@ -5,17 +5,15 @@
             <div class="w-3/5">
                  {{$candidat->NomComplet()}} ( {{$candidat->sexe === 'M' ? 'Candidat' : 'Candidate'}} {{$candidat->presence()}} )
             </div>
-            @if($candidat->path)
+            @if($candidat->photoCandidat->path)
             <div class="w-1/5 text-white"><img src="{{ Storage::url($candidat->photoCandidat->path) }}" width="50 px" height="50 px" alt="{{$candidat->numero}}"></div>
             @endif
             <div class="w-1/5 text-white">
                 <a href=" {{route('candidats.index')}} ">
-                    <svg class="lg:block absolute right-0 inset-y-0 h-full w-112 text-white transform translate-x-1/2" fill="red" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <svg class="absolute inset-y-0 right-0 h-full text-white transform translate-x-1/2 lg:block w-112" fill="red" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                         <polygon points="50,0 100,0 50,100 0,100" />
                     </svg>
                     Retour
-                    
-                    </svg>
                 </a>
             </div>
             
@@ -27,90 +25,90 @@
         
         <!--Grid Form-->
 
-        <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
-            <div class="mb-2 border-solid border-red-300 rounded border shadow-sm w-full">
-                <div class="border-red-900 bg-blue-700 text-white font-bold px-2 p-1 border-solid border-gray-300 border-green-600 text-3xl text-center">
+        <div class="flex flex-col flex-1 mx-2 md:flex-row lg:flex-row">
+            <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
+                <div class="p-1 px-2 text-3xl font-bold text-center text-white bg-blue-700 border-gray-300 border-red-900 border-green-600 border-solid">
                     
                 </div>
-                <div class="border-blue-900 p-1 flex flex-1 flex-col md:flex-row lg:flex-row justify-between md:mx-2 lg:mx-2">
-                    <div class="mt-5 w-1/2 rounded overflow-hidden shadow-lg">
+                <div class="flex flex-col justify-between flex-1 p-1 border-blue-900 md:flex-row lg:flex-row md:mx-2 lg:mx-2">
+                    <div class="w-1/2 mt-5 overflow-hidden rounded shadow-lg">
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Numéro</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Numéro</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->numero }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->numero }}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Fictif 1</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Fictif 1</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->fictif1 }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->fictif1 }}</b></p>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Fictif 2</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Fictif 2</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->fictif2 }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->fictif2 }}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 
                             </div>
                         </div>
                     </div>
                     <!-- horizontal card -->
-                    <div class="mt-5 w-1/2 rounded overflow-hidden shadow-lg">
+                    <div class="w-1/2 mt-5 overflow-hidden rounded shadow-lg">
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Date de naissance</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Date de naissance</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->datenais->format('d/m/Y')}}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->datenais->format('d/m/Y')}}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Lieu de naissance</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Lieu de naissance</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->lieunais}}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->lieunais}}</b></p>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Sexe</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Sexe</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->lesexe()}}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->lesexe()}}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>EPS</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>EPS</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->aptitude }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->aptitude }}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -120,92 +118,92 @@
                 </div>
             </div>
         </div>
-        <div class="mt-5 flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
-            <div class="mb-2 border-solid border-red-300 rounded border shadow-sm w-full">
-                <div class="border-blue-900 p-1 flex flex-1 flex-col md:flex-row lg:flex-row justify-between md:mx-2 lg:mx-2">
-                    <div class="mt-5 w-1/2 rounded overflow-hidden shadow-lg">
+        <div class="flex flex-col flex-1 mx-2 mt-5 md:flex-row lg:flex-row">
+            <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
+                <div class="flex flex-col justify-between flex-1 p-1 border-blue-900 md:flex-row lg:flex-row md:mx-2 lg:mx-2">
+                    <div class="w-1/2 mt-5 overflow-hidden rounded shadow-lg">
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Etablissement d'origine</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Etablissement d'origine</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->etablissement->name }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->etablissement->name }}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Section</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Section</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->section->title }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->section->title }}</b></p>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Epreuve Optionnelle</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Epreuve Optionnelle</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->epOption }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->epOption }}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Epreuve facultative</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Epreuve facultative</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->facultative }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->facultative }}</b></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- horizontal card -->
-                    <div class="mt-5 w-1/2 rounded overflow-hidden shadow-lg">
+                    <div class="w-1/2 mt-5 overflow-hidden rounded shadow-lg">
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Langue vivante 1</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Langue vivante 1</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->lv1}}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->lv1}}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Langue vivante 2</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Langue vivante 2</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->lv2}}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->lv2}}</b></p>
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Nombre de points</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Nombre de points</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->totalPointsPremTour}}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->totalPointsPremTour}}</b></p>
                                 </div>
                             </div>
                         </div>
                         <div class="px-6 py-1">
-                            <div class="md:flex md:items-center mb-2">
+                            <div class="mb-2 md:flex md:items-center">
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>Résultat</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>Résultat</b></p>
                                 </div>
                                 <div class="md:w-1/2">
-                                    <p class="text-bold text-xl pb-2"><b>{{ $candidat->resultat }}</b></p>
+                                    <p class="pb-2 text-xl text-bold"><b>{{ $candidat->resultat }}</b></p>
                                 </div>
                             </div>
                         </div>
