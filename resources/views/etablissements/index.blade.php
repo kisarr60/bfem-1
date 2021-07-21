@@ -2,28 +2,28 @@
 
     <x-slot name="header">
         <div class="flex items-center justify-between p-4">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 Liste des Etablissements
             </h2>
-            <a href=" {{ route('etablissements.create')}} " class="mr-30 p-2 bg-blue-400 rounded-lg hover:bg-blue-900 hover:text-white">Ajouter un établissement</a>
+            <a href=" {{ route('etablissements.create')}} " class="p-2 bg-blue-400 rounded-lg mr-30 hover:bg-blue-900 hover:text-white">Ajouter un établissement</a>
         </div>
         
     </x-slot>
         
     <div class="py-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 shadow">
                     <div class="grid grid-cols-2 gap-4">
                         @forelse($etablissements as $etablissement)
                             <div class="p-4 bg-gray-100 shadow-md rounded-xl">
-                                <div class="flex items-center justify-between text-left font-semibold text-xl">
+                                <div class="flex items-center justify-between text-xl font-semibold text-left">
                                     <span><b> {{ $etablissement->name }} </b></span>
                                     <span>
-                                        <a class="bg-blue-500 py-1 px-2 rounded-lg" href="{{route('etablissements.edit', $etablissement->id) }}">
+                                        <a class="px-2 py-1 m-1 text-sm bg-blue-500 rounded-lg" href="{{route('etablissements.edit', $etablissement->id) }}">
                                             Editer
                                         </a>
-                                        <a class="bg-red-500 py-1 px-2 rounded-lg" href="{{route('etablissements.delete', $etablissement->id) }}">
+                                        <a class="px-2 py-1 m-1 text-sm bg-red-500 rounded-lg" href="{{route('etablissements.destroy', $etablissement->id) }}">
                                             supprimer
                                         </a>
                                     </span>
@@ -31,19 +31,19 @@
                                 </div>
                                     
                                 <div class="grid grid-cols-2 gap-1">
-                                    <span class="text-right mr-3">Statut de l'établissement</span>
+                                    <span class="mr-3 text-right">Statut de l'établissement</span>
                                     <span> {{ $etablissement->statut }} </span>
                                 </div>
                                 <div class="grid grid-cols-2 gap-1">
-                                    <span class="text-right mr-3">Contact</span>
+                                    <span class="mr-3 text-right">Contact</span>
                                     <span> {{ $etablissement->contact }} </span>
                                 </div>
                                 <div class="grid grid-cols-2 gap-1">
-                                    <span class="text-right mr-3">Ajoutée le</span>
+                                    <span class="mr-3 text-right">Ajoutée le</span>
                                     <span> {{ $etablissement->created_at->format('d/m/Y') }} </span>
                                 </div>
                                 <div class="grid grid-cols-2 gap-1 mt-2">
-                                    <span class="text-right mr-3">Nombre de candidats inscrits</span>
+                                    <span class="mr-3 text-right">Nombre de candidats inscrits</span>
                                     <span> <b>{{ $etablissement->candidats->count() }}</b> </span>
                                 </div>
                                 

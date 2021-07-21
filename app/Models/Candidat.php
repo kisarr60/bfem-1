@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Note;
 use App\Models\Etablissement;
 use App\Models\Section;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 
 class Candidat extends Model
@@ -111,8 +111,7 @@ class Candidat extends Model
 
         static::created(function ($candidat) {
             $candidat->note()->create([
-                'ano1' => $candidat->fictif1,
-                'ano2' => $candidat->fictif2,
+                'ano' => $candidat->fictif1,
             ]);
 
            // Mail::to($user->email)->send(new NewUserWelcomeMail());

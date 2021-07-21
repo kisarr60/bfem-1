@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Http\Request;
-use App\Models\Section;
-use App\Models\Etablissement;
-use App\Models\Candidat;
-use App\Models\PhotoCandidat;
-use App\Models\Note;
-use DB;
 use Carbon\Carbon;
+use App\Models\Note;
+use App\Models\Section;
+use App\Models\Candidat;
+use Illuminate\Http\Request;
+use App\Models\Etablissement;
+use App\Models\PhotoCandidat;
 use App\Exports\CandidatsExport;
 use App\Imports\CandidatsImport;
-use Excel;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
 
 class CandidatsController extends Controller
 {

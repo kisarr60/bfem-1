@@ -40,9 +40,22 @@ class DisciplinesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'  =>  'required',
+            'coef'  =>  'required'
+        ]);
+
         $slug = Str::slug($request->name);
 
-        dd($slug);
+        Discipline::create([
+            'name'  =>  $request->name,
+            'slug'  =>  $slug,
+            'coef'  =>  $request->coef
+        ]);
+
+        return redirect(route('disciplines.index'))->with('status', 'Discipline enregistrée avec succès.');
+
+        
     }
 
     /**
