@@ -33,6 +33,7 @@ class CreateCandidatsTable extends Migration
             $table->integer('absent')->default(0);
             $table->float('totalPointsPremTour')->nullable()->default(0);
             $table->enum('resultatPremTour', ['E', 'G2', 'A1'])->default('E');
+            $table->float('moyennePT')->nullable()->default(0);
             $table->float('totalPointsSdTour')->nullable()->default(0);
             $table->enum('resultatSdTour', ['E', 'A2'])->nullable()->default('E');
             $table->enum('resultat', ['Echec', 'Admis'])->default('Echec');

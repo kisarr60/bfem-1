@@ -1,19 +1,19 @@
-<x-premiertour-layout>
+<x-jury-layout>
 
     <x-slot name="header">
-        <div class="text-2xl font-semibold text-gray-800 leading-tight">Liste des membres du Jury</div>
+        <div class="text-2xl font-semibold leading-tight text-gray-800">Liste des membres du Jury</div>
     </x-slot>
 
-    <div class="max-w-7xl sm:px-6 lg:px-8 mx-auto mt-5 bg-gray-100 shadow-3xl">
+    <div class="mx-auto mt-5 bg-gray-100 max-w-7xl sm:px-6 lg:px-8 shadow-3xl">
         
         <!--Grid Form-->
 
-        <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
-            <div class="mb-2 border-solid border-red-300 rounded border shadow-sm w-full">
-                <div class="border-red-900 bg-blue-700 text-white font-bold px-2 p-1 border-solid border-gray-300 border-green-600 text-xl text-center">
+        <div class="flex flex-col flex-1 mx-2 md:flex-row lg:flex-row">
+            <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
+                <div class="p-1 px-2 text-xl font-bold text-center text-white bg-blue-700 border-gray-300 border-red-900 border-green-600 border-solid">
                     <livewire:membres.jury exportable/>
                 </div>
             </div>
         </div>
     </div>
-</x-premiertour-layout>
+</x-jury-layout>

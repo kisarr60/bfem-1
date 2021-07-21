@@ -30,18 +30,18 @@
             </div>
             <nav :class="{'block': open, 'hidden': !open}" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
                 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900  {{ request()->routeIs('dashboard') ? 'bg-blue-200' : 'bg-transparent'}}   rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('dashboard')}}">Tableau de bord</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900  {{ request()->routeIs('dashboard') ? 'bg-blue-500' : 'bg-transparent'}}   rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('dashboard')}}">Tableau de bord</a>
                 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('disciplines.*') ? 'bg-blue-200' : 'bg-transparent'}} rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('disciplines.index') }} ">Disciplines</a>
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('sections.*') ? 'bg-blue-200' : 'bg-transparent'}} rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('sections.index')}} ">Sections</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('disciplines.*') ? 'bg-blue-500' : 'bg-transparent'}} rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('disciplines.index') }} ">Disciplines</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('sections.*') ? 'bg-blue-500' : 'bg-transparent'}} rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('sections.index')}} ">Sections</a>
                 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900  {{ request()->routeIs('etablissements.*') ? 'bg-blue-200' : 'bg-transparent'}}   rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('etablissements.index')}}">Etablissements</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900  {{ request()->routeIs('etablissements.*') ? 'bg-blue-500' : 'bg-transparent'}}   rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('etablissements.index')}}">Etablissements</a>
                 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('candidats.*') ? 'bg-blue-200' : 'bg-transparent'}}  rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('candidats.index') }} ">Candidats</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('candidats.*') ? 'bg-blue-500' : 'bg-transparent'}}  rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('candidats.index') }} ">Candidats</a>
 
                 <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Notes</a>
 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Premier tour</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('membres') ? 'bg-blue-500' : 'bg-transparent'}} bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('membres')}}">Membres du jury</a>
                 
                 <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Second tour</a>
                 
@@ -56,12 +56,12 @@
         <div class="w-full">
             <!-- Page Heading -->
             <header class="bg-blue-300 shadow">
-                <div class="ml-4 py-2 px-4 sm:px-6 lg:px-8">
+                <div class="px-4 py-2 ml-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
             @if (session('status'))
-                <div class="my-6 mx-10 py-3 px-4 sm:px-6 lg:px-8 bg-green-700 text-white rounded-lg">
+                <div class="px-4 py-3 mx-10 my-6 text-white bg-green-700 rounded-lg sm:px-6 lg:px-8">
                     {{ session('status') }}
                 </div>
             @endif

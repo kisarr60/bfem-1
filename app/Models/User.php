@@ -83,7 +83,7 @@ class User extends Authenticatable
 
     public function hasRole(string $role): bool
     {
-        return $this->role == $role ? true : false;
+        return $this->status == $role ? true : false;
     }
 
     public function statusClass(): string
@@ -95,11 +95,13 @@ class User extends Authenticatable
 
             'secretaire'    =>  'bg-red-300',
 
-            'surveillant'   =>  'bg-indigo-500',
+            'surveillant'   =>  'bg-indigo-200',
 
             'correcteur'    =>  'bg-green-500',
 
-        ][$this->status ?? 'bg-gray-500'];
+            'membre'        =>  'bg-gray-100'
+
+        ][$this->status ?? 'membre'];
     }
 
     public function notations()

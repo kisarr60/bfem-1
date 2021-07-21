@@ -16,7 +16,8 @@ class JuryController extends Controller
      */
     public function index()
     {
-        return view('juries.index');
+        $users = User::all();
+        return view('juries.index', compact('users'));
     }
 
     /**

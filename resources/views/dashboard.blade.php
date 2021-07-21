@@ -1,53 +1,52 @@
 <x-jury-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight py-5">
+        <h2 class="py-5 text-xl font-semibold leading-tight text-gray-800">
             Examen du premier Tour 
         </h2>
     </x-slot>
     <div></div>
     <div class="py-10 mb-20">
         
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
-            <div class="grid grid-cols-4 gap-2 bg-yellow-300 rounded-lg p-2 mb-4 text-center font-semibold text-2xl">
-                <p class="bg-green-300 rounded-lg p-1">Nombre de correcteurs : <span>{{ nbMembres('correcteur')->count() }}</span></p>
-                <p class="bg-blue-300 rounded-lg p-1">Nombre de surveillants : <span>{{ nbMembres('surveillant')->count() }}</span></p>
-                <p class="bg-red-300 rounded-lg p-1">Nombre de secrétaires : <span>{{ nbMembres('secretaire')->count() }}</span></p>
-                <p class="bg-red-300 rounded-lg p-1">Nombre de secrétaires : <span>{{ nbMembres('secretaire')->count() }}</span></p>
+            <div class="grid grid-cols-3 gap-2 p-2 mb-4 text-2xl font-semibold text-center bg-yellow-300 rounded-lg">
+                <p class="p-1 bg-green-300 rounded-lg">Nombre de correcteurs : <span>{{ nbMembres('correcteur')->count() }}</span></p>
+                <p class="p-1 bg-blue-300 rounded-lg">Nombre de surveillants : <span>{{ nbMembres('surveillant')->count() }}</span></p>
+                <p class="p-1 bg-red-300 rounded-lg">Nombre de secrétaires : <span>{{ nbMembres('secretaire')->count() }}</span></p>
             </div>
 
             <div class="grid grid-cols-3 gap-2">
                 @foreach($users as $user)
-                    <div class="p-4 bg-white shadow-md rounded-xl {{ $user->statusClass() }} ">
-                        <div class="text-left font-semibold text-xl"><b><span> {{ $user->prenoms }} {{ $user->name }}</span></b></div>
+                    <div class="p-4 shadow-md rounded-xl {{ $user->statusClass() }} ">
+                        <div class="text-xl font-semibold text-left"><b><span> {{ $user->prenoms }} {{ $user->name }}</span></b></div>
                             
                             <div class="grid grid-cols-2 gap-1">
-                                <span class="text-right mr-3">Corps-Grade</span>
+                                <span class="mr-3 text-right">Corps-Grade</span>
                                 <span> {{ $user->grade }} </span>
                             </div>
                             <div class="grid grid-cols-2 gap-1">
-                                <span class="text-right mr-3">Contact</span>
+                                <span class="mr-3 text-right">Contact</span>
                                 <span> {{ $user->contact }} </span>
                             </div>
                             <div class="grid grid-cols-2 gap-1">
-                                <span class="text-right mr-3">Provenance</span>
+                                <span class="mr-3 text-right">Provenance</span>
                                 <span> {{ $user->provenance }} </span>
                             </div>
                     </div>
                 @endforeach
             </div>
-            <div class="grid grid-cols-2 gap-2 rounded-lg ext-center text-xl bg-gray-100 my-2">
-                <span class=" bg-yellow-300 p-3 rounded-lg font-bold">Les statistiques par section, par établissement et par sexe</span>
+            <div class="grid grid-cols-2 gap-2 my-2 text-xl bg-gray-100 rounded-lg ext-center">
+                <span class="p-3 font-bold bg-yellow-300 rounded-lg ">Les statistiques par section, par établissement et par sexe</span>
                 <span></span>
             </div>
-            <div class="grid grid-cols-2 gap-2 overflow-hidden rounded-xl shadow-sm mt-4">                
+            <div class="grid grid-cols-2 gap-2 mt-4 overflow-hidden shadow-sm rounded-xl">                
                  @foreach($sections as $section)
                 <div class="p-0 border-b border-gray-200 rounded-lg">
-                    <div class="w-full  mx-auto bg-blue-400 p-4 text-center">
-                        <p class="text-3xl font-bold py-4">{{ $section->title }}</p>
+                    <div class="w-full p-4 mx-auto text-center bg-blue-400">
+                        <p class="py-4 text-3xl font-bold">{{ $section->title }}</p>
                         <div class="flex justify-center">
                              @foreach($etablissements as $etablissement)
-                               <p class="w-1/2 text-center p-4 mx-2 bg-green-300">
+                               <p class="w-1/2 p-4 mx-2 text-center bg-green-300">
                                     {{$etablissement->name }}<br>{{get_NombreCandidatsGarcon($section->id, $etablissement->id)}}<br>{{get_CandidatsFille($section->id, $etablissement->id)}}
                                     <ol>
                                         <li></li>
