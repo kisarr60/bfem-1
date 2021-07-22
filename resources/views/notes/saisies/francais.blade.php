@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            Les notes des candidats
+            Les notes des candidats : FRANCAIS
         </h2>
     </x-slot>
 

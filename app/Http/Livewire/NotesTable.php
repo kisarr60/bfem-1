@@ -18,7 +18,7 @@ class NotesTable extends LivewireDatatable
     public $perPage = 100;
     
     public $debut;
-    public $fin=99;
+    public $fin;
 
     public $exportFileName = 'notes-table';
 
@@ -39,7 +39,7 @@ class NotesTable extends LivewireDatatable
             //         : $total;
             // }),
 
-        	NumberColumn::name('red'),
+        	NumberColumn::name('red')->editable(),
         	NumberColumn::name('dic'),
         	NumberColumn::name('tsq'),
         	NumberColumn::name('svt'),
@@ -52,12 +52,6 @@ class NotesTable extends LivewireDatatable
         	NumberColumn::name('eps'),
         	NumberColumn::name('oral'),
         	NumberColumn::name('fac'),
-            // Column::callback(['datenais', 'created_at'], function ($datenais, $createdAt) {
-            //     $age = year($createdAt) - year($datenais);
-            //     return $age > 18
-            //         ? '<span class="text-red-500">' . $age . '</span>'
-            //         : $age;
-            // }),
         	// DateColumn::name('datenais')
         	// 	->label('Né le'),
 

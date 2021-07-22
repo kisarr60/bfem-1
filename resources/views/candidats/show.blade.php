@@ -1,23 +1,18 @@
 <x-jury-layout>
 
     <x-slot name="header">
-        <h2 class="flex items-center w-full rounded-lg font-semibold text-2xl text-gray-300 p-2 font-bold leading-tight text-left {{ $candidat->sexe === 'M' ? 'bg-green-700' : 'bg-red-800'}}">
+        <h2 class="flex items-center w-full rounded-lg text-2xl text-gray-300 p-2 font-bold leading-tight text-left {{ $candidat->sexe === 'M' ? 'bg-green-700' : 'bg-red-800'}}">
             <div class="w-3/5">
                  {{$candidat->NomComplet()}} ( {{$candidat->sexe === 'M' ? 'Candidat' : 'Candidate'}} {{$candidat->presence()}} )
             </div>
-            @if($candidat->photoCandidat->path)
+            @if($candidat->path)
             <div class="w-1/5 text-white"><img src="{{ Storage::url($candidat->photoCandidat->path) }}" width="50 px" height="50 px" alt="{{$candidat->numero}}"></div>
             @endif
             <div class="w-1/5 text-white">
                 <a href=" {{route('candidats.index')}} ">
-                    <svg class="absolute inset-y-0 right-0 h-full text-white transform translate-x-1/2 lg:block w-112" fill="red" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                        <polygon points="50,0 100,0 50,100 0,100" />
-                    </svg>
                     Retour
                 </a>
-            </div>
-            
-           
+            </div>       
         </h2>
     </x-slot>
 
@@ -27,7 +22,7 @@
 
         <div class="flex flex-col flex-1 mx-2 md:flex-row lg:flex-row">
             <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
-                <div class="p-1 px-2 text-3xl font-bold text-center text-white bg-blue-700 border-gray-300 border-red-900 border-green-600 border-solid">
+                <div class="p-1 px-2 text-3xl font-bold text-center text-white bg-blue-700 border-red-900 border-solid">
                     
                 </div>
                 <div class="flex flex-col justify-between flex-1 p-1 border-blue-900 md:flex-row lg:flex-row md:mx-2 lg:mx-2">
@@ -140,7 +135,6 @@
                                 <div class="md:w-1/2">
                                     <p class="pb-2 text-xl text-bold"><b>{{ $candidat->section->title }}</b></p>
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="px-6 py-1">
@@ -184,7 +178,6 @@
                                 <div class="md:w-1/2">
                                     <p class="pb-2 text-xl text-bold"><b>{{ $candidat->lv2}}</b></p>
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="px-6 py-1">

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
   
 
 function changeDateFormate($date, $date_format){

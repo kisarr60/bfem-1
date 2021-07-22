@@ -23,13 +23,13 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
+                <div class="px-4 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                     <div class="bg-green-500 min-h-5">
                         @if ($message = Session::get('message'))
-                            <div class="w-full p-2 bg-green-500 p-3 my-2 flex items-center justify-between rounded-lg">
+                            <div class="flex items-center justify-between w-full p-2 my-2 bg-green-500 rounded-lg">
                                 
-                                <span class="text-xl text-center text-gray-100 font-bold">{!! $message !!}</span>
+                                <span class="text-xl font-bold text-center text-gray-100">{!! $message !!}</span>
 
                                 <button onclick="this.parentElement.style.display='none';">X</button>
 
