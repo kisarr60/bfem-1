@@ -12,6 +12,7 @@ use Mediconesystems\LivewireDatatables\ {
     BooleanColumn,
     NumberColumn
 };
+use Carbon\Carbon;
 
 class Jury extends LivewireDatatable
 {
@@ -25,12 +26,13 @@ class Jury extends LivewireDatatable
     public function columns()
     {
         return [
-        	NumberColumn::name('id')->label('ID'),        	
+        	NumberColumn::name('id')->linkTo('membres', 3)->label('ID'),        	
         	Column::name('prenoms')->label('Prénoms'),
-        	Column::name('name')->label('Nom'),        	
+        	Column::name('name')->label('Nom'),
+        	Column::name('provenance')->label('Provenance'),
         	Column::name('status')->label('Fonction'),
-        	Column::name('email')->label('Email'),        	
         	Column::name('contact')->label('Contact'),
+        	DateColumn::name('arrived_at')->label('Arrivée')->format(),
         	BooleanColumn::name('admin')->label('Admin'),
         ];
     }

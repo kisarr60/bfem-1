@@ -8,9 +8,9 @@
         
         <!--Grid Form-->
 
-        <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
-            <div class="mb-2 border-solid border-red-300 rounded border shadow-sm w-full">
-                <div class="border-red-900 bg-blue-700 text-white font-bold px-2 p-1 border-solid border-gray-300 border-green-600 text-3xl text-center">
+        <div class="flex flex-col flex-1 mx-2 md:flex-row lg:flex-row">
+            <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
+                <div class="p-1 px-2 text-3xl font-bold text-center text-white border-red-900 border-solid">
                     <livewire:membres.surveillants />
                 </div>
             </div>

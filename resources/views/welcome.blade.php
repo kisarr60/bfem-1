@@ -42,31 +42,31 @@
 
             <div class="flex flex-col items-center py-6 lg:h-128 lg:flex-row">
                 <div class="lg:w-1/2">
-                    <div class="text-center uppercase text-2xl font-semibold text-gray-300">Ministère de l'éducation nationale</div>
-                    <div class="text-center text-2xl font-semibold text-gray-300 mb-6">Direction des Examens et Concours</div>
-                    <div class="text-center text-2xl font-semibold text-gray-300 mt-6">
+                    <div class="text-2xl font-semibold text-center text-gray-300 uppercase">Ministère de l'éducation nationale</div>
+                    <div class="mb-6 text-2xl font-semibold text-center text-gray-300">Direction des Examens et Concours</div>
+                    <div class="mt-6 text-2xl font-semibold text-center text-gray-300">
                         Brevet de Fin d'Etudes Moyennes
                         <span class="text-lg">(BFEM)</span>
                     </div>
-                    <div class="text-center text-2xl font-semibold text-gray-300 mb-10">
+                    <div class="mb-10 text-2xl font-semibold text-center text-gray-300">
                         Session <span class="text-lg">{{ $lejury->session ?? '2020-2021'}} </span>
                     </div>
-                    <div class="ml-18 flex justify-between text-sm font-semibold text-gray-300">
+                    <div class="flex justify-between text-sm font-semibold text-gray-300 ml-18">
                         <div class="w-1/4"></div>
                         <div class="w-1/4 border-b border-gray-500">Académie</div>
                         <div class="w-2/4 text-indigo-400"> {{ $lejury->academie ?? 'Ziguinchor'}} </div>
                     </div>
-                    <div class="ml-18 flex justify-between text-sm font-semibold text-gray-300">
+                    <div class="flex justify-between text-sm font-semibold text-gray-300 ml-18">
                         <div class="w-1/4"></div>
                         <div class="w-1/4 border-b border-gray-500">I.E.F.</div>
                         <div class="w-2/4 text-indigo-400"> {{ $lejury->ief ?? 'Ziguinchor'}} </div>
                     </div>
-                    <div class="ml-18 flex justify-between text-sm font-semibold text-gray-300">
+                    <div class="flex justify-between text-sm font-semibold text-gray-300 ml-18">
                         <div class="w-1/4"></div>
                         <div class="w-1/4 border-b border-gray-500">Centre</div>
                         <div class="w-2/4 text-indigo-400"> {{ $lejury->centre ?? 'Ziguinchor'}} </div>
                     </div>
-                    <div class="ml-18 flex justify-between text-sm font-semibold text-gray-300">
+                    <div class="flex justify-between text-sm font-semibold text-gray-300 ml-18">
                         <div class="w-1/4"></div>
                         <div class="w-1/4 border-b border-gray-500">Président du jury</div>
                         <div class="w-2/4 text-indigo-400"> {{ $lejury->president ?? 'Ziguinchor'}} </div>
@@ -77,48 +77,57 @@
                 <div class="flex mt-8 lg:w-1/2 lg:justify-end lg:mt-0">
                     <div class="max-w-sm bg-white rounded-lg dark:bg-gray-800">
                         <div class="p-5 text-center">
-                            <h2 class="text-2xl font-semibold text-gray-700 dark:text-white mb-5">Se connecter</h2>
+                            @guest
+                            <h2 class="mb-5 text-2xl font-semibold text-gray-700 dark:text-white">Se connecter</h2>
 
                             <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                            
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    <!-- Email Address -->
+                                    <div>
+                                        <label for="email"> Email</label>
 
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-                                <!-- Email Address -->
-                                <div>
-                                    <label for="email"> Email</label>
+                                        <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus />
+                                    </div>
 
-                                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                                </div>
+                                    <!-- Password -->
+                                    <div class="mt-4">
+                                        <label for="password"> Password</label>
 
-                                <!-- Password -->
-                                <div class="mt-4">
-                                    <label for="password"> Password</label>
+                                        <x-input id="password" class="block w-full mt-1"
+                                                        type="password"
+                                                        name="password"
+                                                        required autocomplete="current-password" />
+                                    </div>
 
-                                    <x-input id="password" class="block mt-1 w-full"
-                                                    type="password"
-                                                    name="password"
-                                                    required autocomplete="current-password" />
-                                </div>
+                                    <div class="flex items-center justify-end mt-4">
+                                    
+                                            <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('register') }}">
+                                                {{ __('Register') }}
+                                            </a>
+                                        
+                                        <x-button class="ml-3">
+                                            {{ __('Log in') }}
+                                        </x-button>
 
-                                <div class="flex items-center justify-end mt-4">
-                                    @if (Route::has('password.request'))
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                            {{ __('Forgot your password?') }}
-                                        </a>
-                                    @endif
-
-                                    <x-button class="ml-3">
-                                        {{ __('Log in') }}
-                                    </x-button>
-                                </div>
-                            </form>
+                                        
+                                    
+                                    </div>
+                                </form>
+                            @endguest
+                             @auth
+                                <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('dashboard') }}">
+                                    <h2 class="mb-5 text-2xl font-semibold text-gray-700 dark:text-white">Tableau de bord</h2>
+                                </a>
+                            @endauth
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <div class="border-t border-gray-600 p-3 bg-gray-800 flex items-center justify-between">
+    <div class="flex items-center justify-between p-3 bg-gray-800 border-t border-gray-600">
          <p class="ml-10 text-green-300">Propriétaire : sarrsindian@gmail.com</p>
          <p class="mr-10 text-red-300">(c) Kis@rr-WebBit - 2016-<b>{{ \Carbon\Carbon::now()->format('Y') }}</b></p>
          <a href=" {{route('juries.edit', 1)}} "><p class="mr-10 text-indigo-400">Settings</p></a>

@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CandidatsController;
-use App\Http\Controllers\NotesController;
-use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\JuryController;
-use App\Http\Controllers\EtablissementsController;
-use App\Http\Controllers\DisciplinesController;
+use App\Http\Controllers\NotesController;
+use App\Http\Controllers\MembreController;
+use App\Http\Controllers\SectionsController;
+use App\Http\Controllers\CandidatsController;
 use App\Http\Controllers\CorrectionsController;
+use App\Http\Controllers\DisciplinesController;
+use App\Http\Controllers\EtablissementsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('/corrections', CorrectionsController::class);
 Route::resource('/disciplines', DisciplinesController::class);
 Route::resource('etablissements', EtablissementsController::class);
+Route::resource('membres', MembreController::class);
 
 
 require __DIR__.'/auth.php';
