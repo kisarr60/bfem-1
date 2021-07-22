@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+         @livewireStyles
     </head>
     <body class="antialiased bg-gray-100">
     <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
@@ -39,11 +40,11 @@
                 
                 <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('candidats.*') ? 'bg-blue-500' : 'bg-transparent'}}  rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href=" {{ route('candidats.index') }} ">Candidats</a>
 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Notes</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900  {{ request()->routeIs('notes.*') ? 'bg-blue-500' : 'bg-transparent'}} rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('notes.index') }}">Notes</a>
 
                 <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 {{ request()->routeIs('membres') ? 'bg-blue-500' : 'bg-transparent'}} bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{route('membres')}}">Membres du jury</a>
                 
-                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Second tour</a>
+                <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Second tour</a>
                 
                 
                 <form method="POST" action="{{ route('logout') }}">
@@ -72,6 +73,7 @@
             </main>
         </div>
     </div>
+     @livewireScripts
     </body>
 
 </html>

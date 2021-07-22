@@ -10,7 +10,7 @@
 
         <div class="flex flex-col flex-1 mx-2 md:flex-row lg:flex-row">
             <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
-                <div class="p-1 px-2 text-xl font-bold text-center text-white bg-blue-700 border-gray-300 border-red-900 border-green-600 border-solid">
+                <div class="p-1 px-2 text-xl font-bold text-center text-white bg-blue-700 border-green-600 border-solid">
                     <livewire:membres.jury exportable/>
                 </div>
             </div>

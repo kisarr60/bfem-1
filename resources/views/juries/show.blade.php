@@ -1,7 +1,7 @@
 <x-jury-layout>
 
     <x-slot name="header">
-        <h2 class="flex items-center w-full p-2 text-2xl font-semibold font-bold leading-tight text-left text-gray-300 bg-green-700 rounded-lg">
+        <h2 class="flex items-center w-full p-2 text-2xl font-bold leading-tight text-left text-gray-300 bg-green-700 rounded-lg">
             <div class="w-3/5">
                  Settings du jury 
             </div>
@@ -13,7 +13,7 @@
     <div class="w-9/12 p-1 mx-auto mt-5 bg-gray-100 shadow-3xl">
         <div class="flex flex-col flex-1 mx-2 md:flex-row lg:flex-row">
             <div class="w-full mb-2 border border-red-300 border-solid rounded shadow-sm">
-                <div class="p-1 px-2 text-3xl font-bold text-center text-white bg-blue-700 border-gray-300 border-red-900 border-green-600 border-solid">
+                <div class="p-1 px-2 text-3xl font-bold text-center text-white bg-blue-700 border-green-600 border-solid">
                     <div class="px-6 py-1">
                         <div class="mb-2 md:flex md:items-center">
                         
