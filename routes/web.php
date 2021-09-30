@@ -26,15 +26,15 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-    Route::middleware('secretaire')->group(function() {
+    Route::group(function() {
     	Route::resource('candidats', CandidatsController::class);
         Route::get('/membre-create', [JuryController::class, 'createMembre'])->name('creer-membre');
         Route::post('/membre-create', [JuryController::class, 'storeMembre'])->name('store-membre');
     });
-    Route::middleware('correcteur')->group(function() {
+    Route::group(function() {
     	Route::resource('notes', NotesController::class);
     });
-    Route::middleware('is_admin')->group(function(){
+    Route::group(function(){
 
     	Route::resource('sections', SectionsController::class);
 		
